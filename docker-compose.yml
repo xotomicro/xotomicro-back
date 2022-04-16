@@ -1,0 +1,171 @@
+version: '2.1'
+services:
+    ####################
+    ##  DEPENDENCIES  ##
+    ####################
+
+    elasticsearch:
+        extends:
+            file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
+            service: elasticsearch
+        depends_on:
+            eureka:
+                condition: service_healthy
+
+    zookeeper:
+        extends:
+            file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
+            service: zookeeper
+        depends_on:
+            eureka:
+                condition: service_healthy
+
+    kafka:
+        extends:
+            file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
+            service: kafka
+        depends_on:
+            zookeeper:
+                condition: service_started
+
+    ##############
+    ## DATABASE ##
+    ##############
+
+    order-redis:
+        extends:
+            file: ./packages/service/xotomicro-back-order-service/docker-compose.${ENV}.yml
+            service: order-redis
+
+    order-db:
+        extends:
+            file: ./packages/service/xotomicro-back-order-service/docker-compose.${ENV}.yml
+            service: order-db
+
+    product-redis:
+        extends:
+            file: ./packages/service/xotomicro-back-product-service/docker-compose.${ENV}.yml
+            service: product-redis
+
+    product-db:
+        extends:
+            file: ./packages/service/xotomicro-back-product-service/docker-compose.${ENV}.yml
+            service: product-db
+
+    user-db:
+        extends:
+            file: ./packages/service/xotomicro-back-user-service/docker-compose.${ENV}.yml
+            service: user-db
+
+    #############
+    ## SERVER  ##
+    #############
+
+    eureka:
+        extends:
+            file: ./packages/server/xotomicro-back-eureka-server/docker-compose.${ENV}.yml
+            service: eureka
+
+    ###############
+    ##  GATEWAY  ##
+    ###############
+
+    xotomicro-back-external-gateway-system:
+        extends:
+            file: ./packages/system/xotomicro-back-gateway-system/docker-compose.${ENV}.yml
+            service: xotomicro-back-external-gateway-system
+        depends_on:
+            eureka:
+                condition: service_healthy
+            xotomicro-back-user-service:
+                condition: service_healthy
+            xotomicro-back-auth-service:
+                condition: service_healthy
+            xotomicro-back-product-service:
+                condition: service_healthy
+            xotomicro-back-order-service:
+                condition: service_healthy
+            xotomicro-back-event-service:
+                condition: service_healthy
+
+    xotomicro-back-internal-gateway-system:
+        extends:
+            file: ./packages/system/xotomicro-back-gateway-system/docker-compose.${ENV}.yml
+            service: xotomicro-back-internal-gateway-system
+        depends_on:
+            eureka:
+                condition: service_healthy
+            xotomicro-back-user-service:
+                condition: service_healthy
+            xotomicro-back-auth-service:
+                condition: service_healthy
+            xotomicro-back-product-service:
+                condition: service_healthy
+            xotomicro-back-order-service:
+                condition: service_healthy
+            xotomicro-back-event-service:
+                condition: service_healthy
+
+    ####################
+    ## AUTHENTICATION ##
+    ####################
+
+    xotomicro-back-auth-service:
+        extends:
+            file: ./packages/service/xotomicro-back-auth-service/docker-compose.${ENV}.yml
+            service: xotomicro-back-auth-service
+        depends_on:
+            eureka:
+                condition: service_healthy
+
+    ###############
+    ##  SERVICE  ##
+    ###############
+
+    xotomicro-back-event-service:
+        extends:
+            file: ./packages/service/xotomicro-back-event-service/docker-compose.${ENV}.yml
+            service: xotomicro-back-event-service
+        depends_on:
+            eureka:
+                condition: service_healthy
+            elasticsearch:
+                condition: service_healthy
+            zookeeper:
+                condition: service_started
+            kafka:
+                condition: service_started
+
+    xotomicro-back-order-service:
+        extends:
+            file: ./packages/service/xotomicro-back-order-service/docker-compose.${ENV}.yml
+            service: xotomicro-back-order-service
+        depends_on:
+            eureka:
+                condition: service_healthy
+            order-db:
+                condition: service_healthy
+            order-redis:
+                condition: service_healthy
+
+    xotomicro-back-product-service:
+        extends:
+            file: ./packages/service/xotomicro-back-product-service/docker-compose.${ENV}.yml
+            service: xotomicro-back-product-service
+        depends_on:
+            eureka:
+                condition: service_healthy
+            product-db:
+                condition: service_healthy
+            product-redis:
+                condition: service_healthy
+
+    xotomicro-back-user-service:
+        extends:
+            file: ./packages/service/xotomicro-back-user-service/docker-compose.${ENV}.yml
+            service: xotomicro-back-user-service
+        depends_on:
+            eureka:
+                condition: service_healthy
+            user-db:
+                condition: service_healthy

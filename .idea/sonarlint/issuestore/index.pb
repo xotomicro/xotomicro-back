@@ -1,0 +1,27 @@
+
+§
+wpackages/service/xotomicro-back-auth-service/src/main/java/com/boilerplate/xotomicro_back_auth_service/dto/UserDto.java,8/f/8f1fe909fad3dea83210cf67e43c3efc1a55ec90
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+·
+†packages/service/xotomicro-back-product-service/src/test/java/com/boilerplate/xotomicro_back_product_service/service/ProductTest2.java,d/7/d7b4d6c9aa817b6891d71285b65777642fab90b3
+½
+Œpackages/service/xotomicro-back-product-service/src/test/java/com/boilerplate/xotomicro_back_product_service/service/ProductServiceTest.java,4/f/4f57c808865e7ed3bad879dfb6e3b8e0fa282fed
+º
+‰packages/service/xotomicro-back-product-service/src/test/java/com/boilerplate/xotomicro_back_product_service/service/KafkaSenderTest.java,5/3/5377b53ea3c7262027452ac2e911d9d925596d56
+¶
+…packages/service/xotomicro-back-product-service/src/main/java/com/boilerplate/xotomicro_back_product_service/service/KafkaSender.java,9/e/9e4915e18c5683c525b3b24023c23e79b0b321fd
+¹
+ˆpackages/service/xotomicro-back-product-service/src/main/java/com/boilerplate/xotomicro_back_product_service/service/ProductService.java,3/1/3150a564b84b228930100de805c7062ef43fb497
+·
+†packages/service/xotomicro-back-product-service/src/main/java/com/boilerplate/xotomicro_back_product_service/config/SwaggerConfig.java,8/d/8d1181eac886adde58af5b4a3e53ca66ab98747c
+~
+Npackages/service/xotomicro-back-product-service/docker-compose.development.yml,b/4/b4d51292851b9471988cdc7c1a70d5d61caa738b
+}
+Mpackages/service/xotomicro-back-product-service/docker-compose.production.yml,5/8/580474ed986a74b34f59ab9a6fb377c8cb75571f
+µ
+„packages/service/xotomicro-back-product-service/src/main/java/com/boilerplate/xotomicro_back_product_service/config/KafkaConfig.java,1/b/1b28743acfc77eb554f228735434f7bb755cb582
+µ
+„packages/service/xotomicro-back-product-service/src/main/java/com/boilerplate/xotomicro_back_product_service/config/CacheConfig.java,e/9/e9cde91292cda4653b58134dda6864a7d173ef8d
+f
+6packages/system/xotomicro-back-stream-system/README.md,d/9/d9729792d4d6a8feb48c1d98d8a741816ae05c95

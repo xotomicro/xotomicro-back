@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<groupId>com.boilerplate</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.0.0</version>
+	<name>Parent</name>
+
+	<modules>
+		<module>packages/server/xotomicro-back-eureka-server</module>
+		<module>packages/system/xotomicro-back-gateway-system</module>
+		<module>packages/service/xotomicro-back-user-service</module>
+		<module>packages/service/xotomicro-back-auth-service</module>
+		<module>packages/service/xotomicro-back-product-service</module>
+		<module>packages/service/xotomicro-back-order-service</module>
+		<module>packages/service/xotomicro-back-event-service</module>
+	</modules>
+
+</project>

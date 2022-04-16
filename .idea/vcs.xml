@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/server/xotomicro-back-eureka-server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/service/xotomicro-back-auth-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/service/xotomicro-back-event-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/service/xotomicro-back-order-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/service/xotomicro-back-product-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/service/xotomicro-back-user-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/system/xotomicro-back-gateway-system" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/system/xotomicro-back-stream-system" vcs="Git" />
+  </component>
+</project>

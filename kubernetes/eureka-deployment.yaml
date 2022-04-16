@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: eureka
+  name: eureka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: eureka
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: eureka
+    spec:
+      containers:
+        - env:
+            - name: JVM_OPTS
+              value: -Xmx512m -Xms512m
+          image: eureka
+          imagePullPolicy: IfNotPresent
+          name: eureka
+          ports:
+            - containerPort: 9090
+          resources: {}
+      restartPolicy: Always
+status: {}
