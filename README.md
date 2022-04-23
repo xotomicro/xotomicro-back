@@ -31,7 +31,7 @@
 ### 🎭 MONOREPO STRUCTURE
 ```sh
 # clone all git submodules
- git clone --recurse-submodules https://github.com/xotomicro/xotomicro-backend.git >> /dev/null # to import all micro services into the monorepo
+git clone --recurse-submodules https://github.com/xotomicro/xotomicro-backend.git >> /dev/null # to import all micro services into the monorepo
 ```
 
 ### 🤷🏼‍♂️ PREREQUISITE
