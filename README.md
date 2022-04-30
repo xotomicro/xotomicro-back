@@ -31,7 +31,7 @@
 ### 🎭 MONOREPO STRUCTURE
 ```sh
 # clone all git submodules
-git clone --recurse-submodules https://github.com/xotomicro/xotomicro-backend.git >> /dev/null # to import all micro services into the monorepo
+git clone --recurse-submodules https://github.com/xotomicro/xotomicro-back.git >> /dev/null # to import all micro services into the monorepo
 ```
 
 ### 🤷🏼‍♂️ PREREQUISITE
@@ -84,7 +84,7 @@ git clone --recurse-submodules https://github.com/xotomicro/xotomicro-backend.gi
 
 ### 📝 LICENSE
 Copyright © 2022 [XOTOSPHERE](https://github.com/xotosphere).<br/>
-This project is [ISC](https://github.com/xotomicro/xotomicro-backend/blob/main/LICENSE) licensed.
+This project is [ISC](https://raw.githubusercontent.com/xotomicro/xotomicro-back/development/LICENSE) licensed.
 
 ### 🏃 CHANGELOGS AND TODOS
 - TODOS
