@@ -17,6 +17,10 @@ spec:
     spec:
       containers:
         - env:
+            - name: PROFILE
+              value: docker
+            - name: ENV
+              value: production
             - name: JVM_OPTS
               value: -Xmx512m -Xms512m
           image: xotomicro-back-user-service

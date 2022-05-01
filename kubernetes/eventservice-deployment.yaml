@@ -24,6 +24,8 @@ spec:
           env:
             - name: PROFILE
               value: docker
+            - name: ENV
+              value: production
           resources: {}
       restartPolicy: Always
 status: {}

@@ -19,6 +19,10 @@ spec:
         - env:
             - name: JVM_OPTS
               value: -Xmx512m -Xms512m
+            - name: PROFILE
+              value: docker
+            - name: ENV
+              value: production
           image: xotomicro-back-product-service
           imagePullPolicy: IfNotPresent
           name: xotomicro-back-product-service
