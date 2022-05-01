@@ -23,7 +23,7 @@ updateSubRepoGit() {
 		git checkout development
 
 		git add .
-		git commit -m "latest edit: gitu.all -> update"
+		git commit -m "blast off 🚀 "
 		git push
 		echo ""
 	done
