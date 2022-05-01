@@ -19,6 +19,8 @@ spec:
         - env:
             - name: JVM_OPTS
               value: -Xmx512m -Xms512m
+            - name: PROFILE
+              value: docker
           image: eureka
           imagePullPolicy: IfNotPresent
           name: eureka

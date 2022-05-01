@@ -17,6 +17,8 @@ spec:
     spec:
       containers:
         - env:
+            - name: PROFILE
+              value: docker
             - name: JVM_OPTS
               value: -Xmx512m -Xms512m
           image: xotomicro-back-order-service

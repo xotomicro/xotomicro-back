@@ -13,7 +13,7 @@
     "start": "docker-compose --env-file=.env up",
     "start:quiet": "docker-compose --env-file=.env build && docker-compose --env-file=.env up",
     "changelog": "auto-changelog -p",
-    "git:update": "./git-util.sh updateSubRepoGit"
+    "git:update": "./git-util.sh"
   },
   "devDependencies": {
     "auto-changelog": "^2.4.0"

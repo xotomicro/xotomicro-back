@@ -1,7 +1,6 @@
 # https://skaffold.dev/docs/references/yaml/
 
 # ADD DATABASES AND ROOT DEPS
-
 apiVersion: skaffold/v2beta26
 kind: Config
 metadata:
@@ -12,6 +11,11 @@ build:
       template: "{{.xotomicro}}"
 
   artifacts:
+  #   - image: xotomicro-back-stream-system
+  #     context: ./packages/system/xotomicro-back-stream-system/.
+      # docker:
+      #   dockerfile: ./packages/system/xotomicro-back-stream-system/docker/dockerfile.production
+        
     - image: xotomicro-back-auth-service
       context: ./packages/service/xotomicro-back-auth-service/.
       docker:
@@ -57,14 +61,15 @@ build:
 deploy:
   kubectl:
     manifests:
-      - ./packages/system/xotomicro-back-gateway-system/kubernetes/*
       - ./packages/system/xotomicro-back-stream-system/kubernetes/*
+      - ./packages/system/xotomicro-back-gateway-system/kubernetes/*
       - ./packages/server/xotomicro-back-eureka-server/kubernetes/*
       - ./packages/service/xotomicro-back-auth-service/kubernetes/*
       - ./packages/service/xotomicro-back-event-service/kubernetes/*
       - ./packages/service/xotomicro-back-order-service/kubernetes/*
       - ./packages/service/xotomicro-back-product-service/kubernetes/*
       - ./packages/service/xotomicro-back-user-service/kubernetes/*
+      
 # NOTES TAG POLICY ==========
 # tagPolicy:
 #   customTemplate:

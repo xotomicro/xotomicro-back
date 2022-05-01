@@ -19,7 +19,7 @@ spec:
         - env:
             - name: JVM_OPTS
               value: -Xmx512m -Xms512m
-            - name: PROFILE
+            - name: PROFILE_GATEWAY
               value: docker-internal-gateway-system
             - name: SECRET_KEY
               value: 1jcryR3Lsf

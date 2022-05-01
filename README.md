@@ -37,6 +37,7 @@ git clone --recurse-submodules https://github.com/xotomicro/xotomicro-back.git >
 ### 🤷🏼‍♂️ PREREQUISITE
   - Java version 11 (at least)
   - Maven
+  - Postgres
   - Clang 14
   - Lumbok
 

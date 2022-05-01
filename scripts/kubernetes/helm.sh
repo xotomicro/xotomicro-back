@@ -22,6 +22,7 @@ cleanup() {
 
 launchKafka() {
 	if ! helm status kafka >/dev/null 2>&1; then
+		echo ""
 		echo "${GREEN} Installing KAFKA...${NC}"
 		helm repo update
 		helm install kafka bitnami/kafka
@@ -36,7 +37,8 @@ launchKafka() {
 
 launchElasticSearch() {
 	if ! helm status elasticsearch >/dev/null 2>&1; then
-		echo "${GREEN} Installing KAFKA...${NC}"
+		echo ""
+		echo "${GREEN} Installing ElasticSearch...${NC}"
 		helm install elasticsearch bitnami/elasticsearch
 	else
 		################################################################################################################## NOTES ELASTICSEARCH
@@ -53,8 +55,12 @@ launchElasticSearch() {
 
 launchRedis() {
 	if ! helm status redis >/dev/null 2>&1; then
+		echo ""
+		echo "${GREEN} Installing Redis...${NC}"
 		helm install redis bitnami/redis
-		kubectl run --namespace default redis-client --restart='Never' --env REDIS_PASSWORD=$REDIS_PASSWORD --image docker.io/bitnami/redis:6.2.6-debian-10-r174 --command -- sleep infinity
+		kubectl run --namespace default redis-client --rm --tty -i --restart='Never' --image docker.io/bitnami/redis:6.2.6-debian-10-r174 --command -- sleep infinity
+		# export REDIS_PASSWORD=$(kubectl get secret redis-client -o jsonpath="{.data.redis-password}" | base64 --decode)
+		# kubectl run --namespace default redis-client --restart='Never' --env REDIS_PASSWORD=$REDIS_PASSWORD --image docker.io/bitnami/redis:6.2.6-debian-10-r174 --command -- sleep infinity
 	else
 		echo "REDIS ..... ${GREEN}OK${NC}"
 		################################################################################################################## NOTES REDIS
@@ -69,8 +75,10 @@ launchRedis() {
 # ZOOKEEPER
 ###########
 
-launchRedis() {
-	if ! helm status redis >/dev/null 2>&1; then
+launchZooKeeper() {
+	if ! helm status zookeeper >/dev/null 2>&1; then
+		echo ""
+		echo "${GREEN} Installing Zookeeper...${NC}"
 		helm install zookeeper bitnami/zookeeper
 	else
 		echo "ZOOKEEPER ..... ${GREEN}OK${NC}"
@@ -81,9 +89,37 @@ launchRedis() {
 	fi
 }
 
+###########
+# POSTGRES
+###########
+
+launchPostgres() {
+	if ! helm status postgresql >/dev/null 2>&1; then
+		echo ""
+		echo "${GREEN} Installing Zookeeper...${NC}"
+		helm install postgresql bitnami/postgresql
+	else
+		echo "Postgresql ..... ${GREEN}OK${NC}"
+		################################################################################################################## NOTES POSTGRES
+		# PostgreSQL can be accessed via port 5432 on the following DNS names from within your cluster:
+		#     my-release-postgresql.default.svc.cluster.local - Read/Write connection
+		# To get the password for "postgres" run:
+		#     export POSTGRES_PASSWORD=$(kubectl get secret --namespace default my-release-postgresql -o jsonpath="{.data.postgres-password}" | base64 --decode)
+		# To connect to your database run the following command:
+		#     kubectl run my-release-postgresql-client --rm --tty -i --restart='Never' --namespace default --image docker.io/bitnami/postgresql:14.2.0-debian-10-r77 --env="PGPASSWORD=$POSTGRES_PASSWORD" \
+		#       --command -- psql --host my-release-postgresql -U postgres -d postgres -p 5432
+		#     > NOTE: If you access the container using bash, make sure that you execute "/opt/bitnami/scripts/entrypoint.sh /bin/bash" in order to avoid the error "psql: local user with ID 1001} does not exist"
+		# To connect to your database from outside the cluster execute the following commands:
+		#     kubectl port-forward --namespace default svc/my-release-postgresql 5432:5432 &
+		#     PGPASSWORD="$POSTGRES_PASSWORD" psql --host 127.0.0.1 -U postgres -d postgres -p 5432
+		################################################################################################################## NOTES POSTGRES END
+	fi
+}
+
 printInfo() {
 	echo "-------------------------------------"
-	echo "${GREEN}Launching your dev environment...${NC}"
+	echo ""
+	echo "${GREEN}👷 Launching your dev environment...${NC}"
 	echo "-------------------------------------"
 }
 
@@ -103,8 +139,10 @@ helm repo update
 launchKafka
 launchElasticSearch
 launchRedis
-launchRedis
+launchZooKeeper
+launchPostgres
 
+echo ""
 echo "-------------------------------------"
 echo "${GREEN}dependency sum...${NC}"
 ####################################################################################################### OTHER NOTES
