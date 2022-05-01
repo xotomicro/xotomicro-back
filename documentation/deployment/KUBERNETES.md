@@ -17,7 +17,6 @@ sh ./scripts/kubernetes/minikube.sh # start start minikube
 eval $(minikube docker-env) # switch to minikube environment
 sh ./scripts/kubernetes/helm.sh # install dependencies for cluster
 mvn clean install -Dmaven.test.skip # install local dependencies for app 
-
 skaffold run --no-prune=false --cache-artifacts=false # deploy to minikube instance 
 # if the above does not work run this before : docker-compose --env-file=.env build # build service with docker
 ```
