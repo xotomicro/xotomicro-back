@@ -17,6 +17,7 @@ sh ./scripts/kubernetes/minikube.sh # start start minikube
 eval $(minikube docker-env) # switch to minikube environment
 sh ./scripts/kubernetes/helm.sh # install dependencies for cluster
 mvn clean install -Dmaven.test.skip # install local dependencies for app 
+
 skaffold run --no-prune=false --cache-artifacts=false # deploy to minikube instance 
 # if the above does not work run this before : docker-compose --env-file=.env build # build service with docker
 ```
@@ -51,7 +52,7 @@ skaffold run # BUILD AND RUN BACKEND IN PRODUCTION MODE
 kubectl delete --all pods --namespace=foo # deletes all namespaces pods with name foo
 kubectl delete --all deployments --namespace=foo # deletes all namespaces with name foo
 kubectl delete --all namespaces # deletes all
-kubectl apply -f . # starts all yaml files inside yaml file folder
+kubectl apply -f ./kubernetes # starts all yaml files inside yaml file folder
 kubectl get pods # Get all pods
 kubectl get deployment # Get all deployment
 kubectl logs -f pod/{pod_name} # Tail log of a pod

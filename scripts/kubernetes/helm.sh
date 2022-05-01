@@ -1,7 +1,7 @@
 #!/bin/sh
-RED="\033[0;31m"
-GREEN="\033[0;32m"
-NC="\033[0m"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
 
 #######
 # CLEAN
@@ -23,7 +23,7 @@ cleanup() {
 launchKafka() {
 	if ! helm status kafka >/dev/null 2>&1; then
 		echo ""
-		echo "${GREEN}Installing KAFKA...${NC}"
+		echo "${GREEN}🍀 Installing KAFKA...${NC}"
 		helm repo update
 		helm install kafka bitnami/kafka
 		kubectl run kafka-client --restart='Never' --image docker.io/bitnami/kafka:3.1.0-debian-10-r64 --namespace default --command -- sleep infinity
@@ -38,7 +38,7 @@ launchKafka() {
 launchElasticSearch() {
 	if ! helm status elasticsearch >/dev/null 2>&1; then
 		echo ""
-		echo "${GREEN}Installing ElasticSearch...${NC}"
+		echo "${GREEN}🍀 Installing ElasticSearch...${NC}"
 		helm install elasticsearch bitnami/elasticsearch
 	else
 		################################################################################################################## NOTES ELASTICSEARCH
@@ -56,7 +56,7 @@ launchElasticSearch() {
 launchRedis() {
 	if ! helm status redis >/dev/null 2>&1; then
 		echo ""
-		echo "${GREEN}Installing Redis...${NC}"
+		echo "${GREEN}🍀 Installing Redis...${NC}"
 		helm install redis bitnami/redis
 		kubectl run --namespace default redis-client --rm --tty -i --restart='Never' --image docker.io/bitnami/redis:6.2.6-debian-10-r174 --command -- sleep infinity
 		# export REDIS_PASSWORD=$(kubectl get secret redis-client -o jsonpath="{.data.redis-password}" | base64 --decode)
@@ -78,7 +78,7 @@ launchRedis() {
 launchZooKeeper() {
 	if ! helm status zookeeper >/dev/null 2>&1; then
 		echo ""
-		echo "${GREEN}Installing Zookeeper...${NC}"
+		echo "${GREEN}🍀 Installing Zookeeper...${NC}"
 		helm install zookeeper bitnami/zookeeper
 	else
 		echo "ZOOKEEPER ..... ${GREEN}OK${NC}"
@@ -96,7 +96,7 @@ launchZooKeeper() {
 launchPostgres() {
 	if ! helm status postgresql >/dev/null 2>&1; then
 		echo ""
-		echo "${GREEN}Installing Postgresql...${NC}"
+		echo "${GREEN}🍀 Installing Zookeeper...${NC}"
 		helm install postgresql bitnami/postgresql
 	else
 		echo "Postgresql ..... ${GREEN}OK${NC}"
@@ -144,7 +144,7 @@ launchPostgres
 
 echo ""
 echo "-------------------------------------"
-echo "${GREEN}Dependency Summary...${NC}"
+echo "${GREEN}dependency sum...${NC}"
 ####################################################################################################### OTHER NOTES
 # helm repo add elastic https://helm.elastic.co
 # helm install elasticsearch elastic/elasticsearch
