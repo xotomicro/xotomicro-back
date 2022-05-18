@@ -72,12 +72,13 @@ kubectl delete -f {yaml_file} # delete deployment by yaml file
 ``` shell
 kubectl logs pod/${POD_HASH} # get pod hash from kubectl get pod 
 watch kubectl get pod # install watch then watch the state of each pod (htop for more)
-kubectl describe pod/ # get an overview of the pods state
+kubectl describe pod/{POD} # get an overview of the pods state
 kubectl get all -A  # get all 
-kubectl get pods # check the pods installed
 kubectl get svc -A # check the services installed
+kubectl get pods # check the pods installed
 kubectl get pods # wait for elastic search
 kubectl delete -f ./kubernetes # delete all kubernetes instances
+kubectl run -it curl --image=curlimages/curl -- sh # run terminal in the kubernetes command
 ```
 
 ### 🚀 DEPLOY MANUALLY
