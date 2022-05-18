@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    io.kompose.service: user-db
-  name: user-db
+    io.kompose.service: order-db
+  name: order-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: user-db
+      io.kompose.service: order-db
   strategy: {}
   template:
     metadata:
       labels:
-        io.kompose.service: user-db
+        io.kompose.service: order-db
     spec:
       containers:
         - env:
@@ -24,7 +24,9 @@ spec:
             - name: POSTGRES_USER
               value: postgres
           image: postgres
-          name: user-db
+          name: order-db
+          ports:
+            - containerPort: 5432
           resources: {}
       restartPolicy: Always
 status: {}

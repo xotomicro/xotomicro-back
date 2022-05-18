@@ -15,6 +15,7 @@ spec:
       labels:
         io.kompose.service: elasticsearch
     spec:
+      serviceAccountName: default
       containers:
         - env:
             - name: ES_JAVA_OPTS

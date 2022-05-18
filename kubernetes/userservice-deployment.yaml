@@ -15,6 +15,7 @@ spec:
       labels:
         io.kompose.service: xotomicro-back-user-service
     spec:
+      serviceAccountName: default
       containers:
         - env:
             - name: PROFILE

@@ -23,6 +23,8 @@ spec:
               value: FLUSHDB,FLUSHALL
           image: docker.io/bitnami/redis:6.2
           name: product-redis
+          ports:
+            - containerPort: 6379
           resources: {}
       restartPolicy: Always
 status: {}

@@ -5,6 +5,7 @@ metadata:
     io.kompose.service: xotomicro-back-internal-gateway-system
   name: xotomicro-back-internal-gateway-system
 spec:
+  type: NodePort
   ports:
     - name: "8070"
       port: 8070

@@ -15,6 +15,7 @@ spec:
       labels:
         io.kompose.service: xotomicro-back-auth-service
     spec:
+      serviceAccountName: default
       containers:
         - env:
             - name: JVM_OPTS

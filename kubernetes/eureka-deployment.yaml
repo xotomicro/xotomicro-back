@@ -15,6 +15,7 @@ spec:
       labels:
         io.kompose.service: eureka
     spec:
+      serviceAccountName: default
       containers:
         - env:
             - name: JVM_OPTS

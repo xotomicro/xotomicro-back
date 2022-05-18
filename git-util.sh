@@ -7,10 +7,8 @@ NC='\033[0m'
 # UPDATE ALL GIT REPOS
 updateSubRepoGit() {
 
-	# format
-	sh ./scripts/format.sh
-	# adapt changelogs
-	sh ./scripts/changelog.sh
+	find . -regex '.*\.\(java\)' -exec clang-format -i {} \;
+	git submodule foreach npm run changelog
 
 	CUR_DIR=$(pwd)
 	echo "${GREEN}Updating all repositories...${NC}"
@@ -19,9 +17,7 @@ updateSubRepoGit() {
 		echo "${GREEN}[Git] ✅ ----------------- $i ${NC}"
 		echo ""
 		cd "$CUR_DIR/$(dirname "$i")"
-
 		git checkout development
-
 		git add .
 		git commit -m "blast off 🚀 "
 		git push
@@ -32,10 +28,10 @@ updateSubRepoGit() {
 }
 
 # UPDATE ALL GIT SUB REPOS
-# updateSubRepo() {
-# 	git submodule foreach $(git add . && git commit -m "CHECKING GIT" && git push)
-# 	git add . && git commit -m "CHECKING GIT" && git push
-# 	echo "Updating Complete! 🥞"
-# }
+updateSubRepo() {
+	git submodule foreach $(git add . && git commit -m "CHECKING GIT" && git push)
+	git add . && git commit -m "CHECKING GIT" && git push
+	echo "Updating Complete! 🥞"
+}
 
 updateSubRepoGit

@@ -15,6 +15,7 @@ spec:
       labels:
         io.kompose.service: xotomicro-back-external-gateway-system
     spec:
+      serviceAccountName: default
       containers:
         - env:
             - name: JVM_OPTS
