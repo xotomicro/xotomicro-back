@@ -3,11 +3,10 @@
 - [🏗️ ARCHITECTURE](#️-architecture)
 - [🎭 AUTHENTICATION](#-authentication)
 - [📦 CREATE PRODUCT](#-create-product)
-- [🎭 MONOREPO STRUCTURE](#-monorepo-structure)
+- [🕍 MONOREPO STRUCTURE](#-monorepo-structure)
 - [🤷🏼‍♂️ PREREQUISITE](#️-prerequisite)
 - [🐳 RUN WITH DOCKER](#-run-with-docker)
 - [♻️ RUN WITH KUBERNETES](#️-run-with-kubernetes)
-- [📦 BOOTSTRAP](#-bootstrap)
 - [🧪 GLOBAL UTILITY CONTAINERS](#-global-utility-containers)
 - [📜 OTHER DOCUMENTATION](#-other-documentation)
 - [🚚 SERVICES](#-services)
@@ -28,7 +27,7 @@
 
 <img src="/documentation/backend/create-product.png" width="800">
 
-### 🎭 MONOREPO STRUCTURE
+### 🕍 MONOREPO STRUCTURE
 
 ```sh
 # clone all git submodules
@@ -46,17 +45,12 @@ git clone --recurse-submodules https://github.com/xotomicro/xotomicro-back.git >
 ### 🐳 RUN WITH DOCKER
 
 * To install and run with docker follow :
-  - [DOCKER](./documentation/deployment/DOCKER.md)
+  - [DOCKER](https://github.com/xotomicro/xotomicro-back/blob/development/documentation/deployment/DOCKER.md)
 
 ### ♻️ RUN WITH KUBERNETES
 
 * To install and run with docker kubernetes :
-  - [KUBERNETES](./documentation/deployment/KUBERNETES.md)
-
-### 📦 BOOTSTRAP
-
-* To repo that can be created and duplicated for different team use
-  - [BACKENDBOOT](./bootstrap/example/README.md)
+  - [KUBERNETES](https://github.com/xotomicro/xotomicro-back/blob/development/documentation/deployment/KUBERNETES.md) : main readme for front kubernetes (local kubectl & minikube)
 
 ### 🧪 GLOBAL UTILITY CONTAINERS
 
@@ -67,25 +61,26 @@ git clone --recurse-submodules https://github.com/xotomicro/xotomicro-back.git >
 ### 📜 OTHER DOCUMENTATION
 
 * Documents to get you started with the projects agility :
-  - [WELCOME](./documentation/conduct/WELCOME.md) - welcome documents
-  - [GUIDEBOOK](./documentation/conduct/GUIDEBOOK.md) - guide documents
-  - [CONTRIBUTING](./documentation/conduct/CONTRIBUTING.md) - contributing documents
-  - [CODE_OF_CONDUCT](./documentation/conduct/CODE_OF_CONDUCT.md) - code_of_conduct documents
-  - [SECURITY](./documentation/conduct/SECURITY.md) - security documents
+  - [CONTRIBUTING](https://github.com/xotomicro/xotomicro-back/blob/development/documentation/conduct/CONTRIBUTING.md) - contributing documents
+  - [GUIDEBOOK](https://github.com/xotomicro/xotomicro-back/blob/development/documentation/conduct/GUIDEBOOK.md) - contributing documents
+  - [CODE_OF_CONDUCT](https://github.com/xotomicro/xotomicro-back/blob/development/documentation/conduct/CODE_OF_CONDUCT.md) - code_of_conduct documents
+  - [SECURITY](https://github.com/xotomicro/xotomicro-back/blob/development/documentation/conduct/SECURITY.md) - security documents
 
 ### 🚚 SERVICES
 
-* SYSTEM : SERVICE THAT INCLUDE ***elasticsearch port 9200 , zookeeper port 2181, kafka port 9092***
-  - [STREAMSYSTEM](./packages/system/xotomicro-back-stream-system/README.md)
-  - [GATEWAYSYSTEM](./packages/system/xotomicro-back-gateway-system/README.md) port : 8080
+- SYSTEM : SERVICE THAT INCLUDE ***elasticsearch port 9200 , zookeeper port 2181, kafka port 9092***
+  - [STREAMSYSTEM](https://github.com/xotomicro/xotomicro-back-stream-system/blob/development/README.md) port : (multiple)
+  - [GATEWAYSYSTEM](https://github.com/xotomicro/xotomicro-back-gateway-system/blob/development/README.md) port : 8080
+  
 - SERVICES
-  - [AUTHSERVICE](./packages/service/xotomicro-back-auth-service/README.md) port : 8082
-  - [EVENTSERVICE](./packages/service/xotomicro-back-event-service/README.md) port : 8085
-  - [ORDERSERVICE](./packages/service/xotomicro-back-order-service/README.md) port : 8084
-  - [PRODUCTSERVICE](./packages/service/xotomicro-back-product-service/README.md) port : 8083
-  - [USERSERVICE](./packages/service/xotomicro-back-user-service/README.md) port : 8081
+  - [AUTHSERVICE](https://github.com/xotomicro/xotomicro-back-auth-service/blob/development/README.md) port : 8082
+  - [EVENTSERVICE](https://github.com/xotomicro/xotomicro-back-event-service/blob/development/README.md) port : 8085
+  - [ORDERSERVICE](https://github.com/xotomicro/xotomicro-back-order-service/blob/development/README.md) port : 8084
+  - [PRODUCTSERVICE](https://github.com/xotomicro/xotomicro-back-product-service/blob/development/README.md) port : 8083
+  - [USERSERVICE](https://github.com/xotomicro/xotomicro-back-user-service/blob/development/README.md) port : 8081
+  
 - SERVERS
-  - [EUREKASERVER](./packages/server/xotomicro-back-eureka-server/README.md) port : 9090
+  - [EUREKASERVER](https://github.com/xotomicro/xotomicro-back-eureka-server/blob/development/README.md) port : 9090
 
 ### 👤 AUTHOR
 
@@ -100,8 +95,8 @@ This project is [ISC](https://raw.githubusercontent.com/xotomicro/xotomicro-back
 ### 🏃 CHANGELOGS AND TODOS
 
 - TODOS
-  - [TODO](./TODO.md)
-  - [CHANGELOG](./CHANGELOG.md)
+  - [TODO](https://github.com/xotomicro/xotomicro-back/blob/development/TODO.md)
+  - [CHANGELOG](https://github.com/xotomicro/xotomicro-back/blob/development/CHANGELOG.md)
 
 ### 👩🏻‍💻 PROJECTS HELPFULL COMMANDS
 
