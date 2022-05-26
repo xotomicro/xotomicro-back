@@ -1,23 +1,25 @@
 <h1 align="center">Microservices Backend Monorepo 👋</h1>
 
 <div align="center">
- <h2> 🎭 AUTHENTICATION  </h2>
+ <h3> 🎭 AUTHENTICATION  </h3>
  <img src="/documentation/backend/architecture.png" width="70%">
 </div>
 
 <br>
 
 <div align="center">
- <h2> 🏗️ ARCHITECTURE </h2>
+ <h3> 🏗️ ARCHITECTURE </h3>
  <img src="/documentation/backend/authentication.png" width="70%">
 </div>
 
 <br>
 
 <div align="center">
- <h2> 📦 CREATE PRODUCT </h2>
+ <h3> 📦 CREATE PRODUCT </h3>
  <img src="/documentation/backend/create-product.png" width="70%">
 </div>
+
+<br>
 
 - [🕍 MONOREPO STRUCTURE](#-monorepo-structure)
 - [🤷🏼‍♂️ PREREQUISITE](#️-prerequisite)
