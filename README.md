@@ -1,8 +1,5 @@
 <h1 align="center">Microservices Backend Package 👋</h1>
 
-- [🏗️ ARCHITECTURE](#️-architecture)
-- [🎭 AUTHENTICATION](#-authentication)
-- [📦 CREATE PRODUCT](#-create-product)
 - [🕍 MONOREPO STRUCTURE](#-monorepo-structure)
 - [🤷🏼‍♂️ PREREQUISITE](#️-prerequisite)
 - [🐳 RUN WITH DOCKER](#-run-with-docker)
@@ -15,17 +12,24 @@
 - [🏃 CHANGELOGS AND TODOS](#-changelogs-and-todos)
 - [👩🏻‍💻 PROJECTS HELPFULL COMMANDS](#-projects-helpfull-commands)
 
-### 🏗️ ARCHITECTURE
+<div align="center">
+ <h1> 🎭 AUTHENTICATION  </h1>
+ <img src="/documentation/backend/architecture.png" width="50%">
+</div>
 
-<img src="/documentation/backend/architecture.png" width="800">
+<br>
 
-### 🎭 AUTHENTICATION
+<div align="center">
+ <h1> 🏗️ ARCHITECTURE </h1>
+ <img src="/documentation/backend/authentication.png" width="50%">
+</div>
 
-<img src="/documentation/backend/authentication.png" width="800">
+<br>
 
-### 📦 CREATE PRODUCT
-
-<img src="/documentation/backend/create-product.png" width="800">
+<div align="center">
+ <h1> 📦 CREATE PRODUCT </h1>
+ <img src="/documentation/backend/create-product.png" width="50%">
+</div>
 
 ### 🕍 MONOREPO STRUCTURE
 
