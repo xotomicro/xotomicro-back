@@ -1,76 +1,75 @@
-version: "2.1"
+version: '2.1'
 services:
+    #####################
+    ##  DEPENDENCIES   ##
+    #####################
 
-  #####################
-  ##  DEPENDENCIES   ##
-  #####################
+    elasticsearch:
+        extends:
+            file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
+            service: elasticsearch
+        depends_on:
+            xotomicro-back-eureka-server:
+                condition: service_healthy
 
-  elasticsearch:
-    extends:
-      file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
-      service: elasticsearch
-    depends_on:
-      xotomicro-back-eureka-server:
-        condition: service_healthy
+    zookeeper:
+        extends:
+            file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
+            service: zookeeper
+        depends_on:
+            xotomicro-back-eureka-server:
+                condition: service_healthy
 
-  zookeeper:
-    extends:
-      file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
-      service: zookeeper
-    depends_on:
-      xotomicro-back-eureka-server:
-        condition: service_healthy
+    kafka:
+        extends:
+            file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
+            service: kafka
+        depends_on:
+            - zookeeper
 
-  kafka:
-    extends:
-      file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
-      service: kafka
-    depends_on:
-      - zookeeper
+    user-db-postgresql:
+        extends:
+            file: ./packages/service/xotomicro-back-user-service/docker-compose.${ENV}.yml
+            service: user-db
 
-  user-db:
-    extends:
-      file: ./packages/service/xotomicro-back-user-service/docker-compose.${ENV}.yml
-      service: user-db
+    xotomicro-back-eureka-server:
+        extends:
+            file: ./packages/server/xotomicro-back-eureka-server/docker-compose.${ENV}.yml
+            service: xotomicro-back-eureka-server
 
-  xotomicro-back-eureka-server:
-    extends:
-      file: ./packages/server/xotomicro-back-eureka-server/docker-compose.${ENV}.yml
-      service: xotomicro-back-eureka-server
+    ########################
+    ##  SERVICE BACKEND   ##
+    ########################
 
-  ########################
-  ##  SERVICE BACKEND   ##
-  ########################
+    # ADD YOUR SERVICE HERE
+    service:
+        extends:
+            file: ./packages/service/docker-compose.${ENV}.yml
+            service: service
+        depends_on:
+            xotomicro-back-eureka-server:
+                condition: service_healthy
 
-  # ADD YOUR SERVICE HERE
-  service:
-    extends:
-      file: ./packages/service/docker-compose.${ENV}.yml
-      service: service
-    depends_on:
-      xotomicro-back-eureka-server:
-        condition: service_healthy
+    ###############
+    ##  GATEWAY  ##
+    ###############
 
-  ###############
-  ##  GATEWAY  ##
-  ###############
+    xotomicro-back-external-gateway-system:
+        extends:
+            file: ./packages/system/xotomicro-back-gateway-system/docker-compose.${ENV}.yml
+            service: xotomicro-back-external-gateway-system
+        depends_on:
+            xotomicro-back-eureka-server:
+                condition: service_started
+            xotomicro-back-auth-service:
+                condition: service_started
 
-  xotomicro-back-external-gateway-system:
-    extends:
-      file: ./packages/system/xotomicro-back-gateway-system/docker-compose.${ENV}.yml
-      service: xotomicro-back-external-gateway-system
-    depends_on:
-      xotomicro-back-eureka-server:
-        condition: service_started
-      xotomicro-back-auth-service:
-        condition: service_started
-
-  xotomicro-back-internal-gateway-system:
-    extends:
-      file: ./packages/system/xotomicro-back-gateway-system/docker-compose.${ENV}.yml
-      service: xotomicro-back-internal-gateway-system
-    depends_on:
-      xotomicro-back-eureka-server:
-        condition: service_started
-      xotomicro-back-auth-service:
-        condition: service_started
+    xotomicro-back-internal-gateway-system:
+        extends:
+            file: ./packages/system/xotomicro-back-gateway-system/docker-compose.${ENV}.yml
+            service: xotomicro-back-internal-gateway-system
+        depends_on:
+            xotomicro-back-eureka-server:
+                condition: service_started
+            xotomicro-back-auth-service:
+                condition: service_started

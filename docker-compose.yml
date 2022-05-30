@@ -32,30 +32,30 @@ services:
     ## DATABASE ##
     ##############
 
-    order-redis:
+    order-redis-master:
         extends:
             file: ./packages/service/xotomicro-back-order-service/docker-compose.${ENV}.yml
-            service: order-redis
+            service: order-redis-master
 
-    order-db:
+    order-db-postgresql:
         extends:
             file: ./packages/service/xotomicro-back-order-service/docker-compose.${ENV}.yml
-            service: order-db
+            service: order-db-postgresql
 
-    product-redis:
+    product-redis-master:
         extends:
             file: ./packages/service/xotomicro-back-product-service/docker-compose.${ENV}.yml
-            service: product-redis
+            service: product-redis-master
 
-    product-db:
+    product-db-postgresql:
         extends:
             file: ./packages/service/xotomicro-back-product-service/docker-compose.${ENV}.yml
-            service: product-db
+            service: product-db-postgresql
 
-    user-db:
+    user-db-postgresql:
         extends:
             file: ./packages/service/xotomicro-back-user-service/docker-compose.${ENV}.yml
-            service: user-db
+            service: user-db-postgresql
 
     #############
     ## SERVER  ##
@@ -66,9 +66,9 @@ services:
             file: ./packages/server/xotomicro-back-eureka-server/docker-compose.${ENV}.yml
             service: eureka
 
-    ###############
-    ##  GATEWAY  ##
-    ###############
+    ##############
+    #  GATEWAY  ##
+    ##############
 
     xotomicro-back-external-gateway-system:
         extends:
@@ -118,9 +118,9 @@ services:
             eureka:
                 condition: service_healthy
 
-    ###############
-    ##  SERVICE  ##
-    ###############
+    # ###############
+    # ##  SERVICE  ##
+    # ###############
 
     xotomicro-back-event-service:
         extends:
@@ -143,9 +143,9 @@ services:
         depends_on:
             eureka:
                 condition: service_healthy
-            order-db:
+            order-db-postgresql:
                 condition: service_healthy
-            order-redis:
+            order-redis-master:
                 condition: service_healthy
 
     xotomicro-back-product-service:
@@ -155,9 +155,9 @@ services:
         depends_on:
             eureka:
                 condition: service_healthy
-            product-db:
+            product-db-postgresql:
                 condition: service_healthy
-            product-redis:
+            product-redis-master:
                 condition: service_healthy
 
     xotomicro-back-user-service:
@@ -167,5 +167,5 @@ services:
         depends_on:
             eureka:
                 condition: service_healthy
-            user-db:
+            user-db-postgresql:
                 condition: service_healthy
