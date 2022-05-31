@@ -20,7 +20,7 @@ services:
             xotomicro-back-eureka-server:
                 condition: service_healthy
 
-    kafka:
+    kafka-headless:
         extends:
             file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
             service: kafka

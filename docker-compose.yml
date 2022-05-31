@@ -20,10 +20,10 @@ services:
             eureka:
                 condition: service_healthy
 
-    kafka:
+    kafka-headless:
         extends:
             file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
-            service: kafka
+            service: kafka-headless
         depends_on:
             zookeeper:
                 condition: service_started
@@ -133,7 +133,7 @@ services:
                 condition: service_healthy
             zookeeper:
                 condition: service_started
-            kafka:
+            kafka-headless:
                 condition: service_started
 
     xotomicro-back-order-service:
