@@ -4,10 +4,10 @@ services:
     ##  DEPENDENCIES  ##
     ####################
 
-    elasticsearch:
+    elasticsearch-master-hl:
         extends:
             file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
-            service: elasticsearch
+            service: elasticsearch-master-hl
         depends_on:
             eureka:
                 condition: service_healthy
@@ -129,7 +129,7 @@ services:
         depends_on:
             eureka:
                 condition: service_healthy
-            elasticsearch:
+            elasticsearch-master-hl:
                 condition: service_healthy
             zookeeper:
                 condition: service_started

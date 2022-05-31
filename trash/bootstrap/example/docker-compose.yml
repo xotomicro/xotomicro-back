@@ -4,7 +4,7 @@ services:
     ##  DEPENDENCIES   ##
     #####################
 
-    elasticsearch:
+    elasticsearch-master-hl:
         extends:
             file: ./packages/system/xotomicro-back-stream-system/docker-compose.${ENV}.yml
             service: elasticsearch
