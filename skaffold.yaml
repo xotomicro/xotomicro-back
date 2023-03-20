@@ -1,0 +1,95 @@
+# https://skaffold.dev/docs/references/yaml/
+
+# ADD DATABASES AND ROOT DEPS
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: xotomicro-backend
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.xotomicro}}"
+
+  artifacts:
+    #   - image: xotomicro-back-stream-system
+    #     context: ./packages/system/xotomicro-back-stream-system/.
+    # docker:
+    #   dockerfile: ./packages/system/xotomicro-back-stream-system/docker/dockerfile.production
+
+    - image: xotomicro-back-auth-service
+      context: ./packages/service/xotomicro-back-auth-service/.
+      docker:
+        dockerfile: ./packages/service/xotomicro-back-auth-service/docker/dockerfile.production
+
+    - image: eureka
+      context: ./packages/server/xotomicro-back-eureka-server/.
+      docker:
+        dockerfile: ./packages/server/xotomicro-back-eureka-server/docker/dockerfile.production
+
+    - image: xotomicro-back-order-service
+      context: ./packages/service/xotomicro-back-order-service/.
+      docker:
+        dockerfile: ./packages/service/xotomicro-back-order-service/docker/dockerfile.production
+
+    - image: xotomicro-back-product-service
+      context: ./packages/service/xotomicro-back-product-service/.
+      docker:
+        dockerfile: ./packages/service/xotomicro-back-product-service/docker/dockerfile.production
+
+    - image: xotomicro-back-user-service
+      context: ./packages/service/xotomicro-back-user-service/.
+      docker:
+        dockerfile: ./packages/service/xotomicro-back-user-service/docker/dockerfile.production
+
+    - image: xotomicro-back-event-service
+      context: ./packages/service/xotomicro-back-event-service/.
+      docker:
+        dockerfile: ./packages/service/xotomicro-back-event-service/docker/dockerfile.production
+
+    - image: xotomicro-back-external-gateway-system
+      context: ./packages/system/xotomicro-back-gateway-system/.
+      docker:
+        dockerfile: ./packages/system/xotomicro-back-gateway-system/docker/dockerfile.production
+
+    - image: xotomicro-back-internal-gateway-system
+      context: ./packages/system/xotomicro-back-gateway-system/.
+      docker:
+        dockerfile: ./packages/system/xotomicro-back-gateway-system/docker/dockerfile.production
+  local:
+    useBuildkit: true
+
+deploy:
+  kubectl:
+    manifests:
+      - kubernetes/*
+# NOTES TAG POLICY ==========
+# tagPolicy:
+#   customTemplate:
+#     template: "{{.FOO}}_{{.BAR}}"
+#     components:
+#     - name: FOO
+#       dateTime:
+#         format: "2006-01-02"
+#         timezone: "UTC"
+#     - name: BAR
+#       gitCommit:
+#         variant: AbbrevCommitSha
+
+# OR ===============
+
+# tagPolicy:
+#   gitCommit: {}
+
+# tagPolicy:
+#   customTemplate:
+#       template: "{{.FOO}}_{{.BAR}}"
+
+# OR ===============
+
+# NOTES ARTIFACTS ==========
+# - image: elasticsearch
+#   context: ./packages/system/xotomicro-back-stream-system/.
+# - image: zookeeper
+#   context: ./packages/system/xotomicro-back-stream-system/.
+# - image: kafka
+#   context: ./packages/system/xotomicro-back-stream-system/.

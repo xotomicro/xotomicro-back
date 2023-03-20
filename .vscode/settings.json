@@ -1,0 +1,12 @@
+{
+	"[java]": {
+		"editor.defaultFormatter": "xaver.clang-format"
+	},
+	"clang-format.executable": "${workspaceRoot}/.clang-format",
+	"clang.completion.completeMacros": true,
+	"clang-format.language.java.enable": true,
+	"clang.completion.enable": true,
+	"clang.diagnostic.enable": true,
+	"clang.executable": "clang",
+	"editor.formatOnSave": true
+}

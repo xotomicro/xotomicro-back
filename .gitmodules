@@ -1,0 +1,37 @@
+# SYSTEM
+
+[submodule "packages/system/xotomicro-back-stream-system"]
+	path = packages/system/xotomicro-back-stream-system
+	url = https://github.com/xotomicro/xotomicro-back-stream-system.git
+	
+[submodule "packages/system/xotomicro-back-gateway-system"]
+	path = packages/system/xotomicro-back-gateway-system
+	url = https://github.com/xotomicro/xotomicro-back-gateway-system.git
+
+# SERVER
+
+[submodule "packages/server/xotomicro-back-eureka-server"]
+	path = packages/server/xotomicro-back-eureka-server
+	url = https://github.com/xotomicro/xotomicro-back-eureka-server.git
+	
+# SERVICE
+	
+[submodule "packages/service/xotomicro-back-auth-service"]
+	path = packages/service/xotomicro-back-auth-service
+	url = https://github.com/xotomicro/xotomicro-back-auth-service.git
+	
+[submodule "packages/service/xotomicro-back-event-service"]
+	path = packages/service/xotomicro-back-event-service
+	url = https://github.com/xotomicro/xotomicro-back-event-service.git
+	
+[submodule "packages/service/xotomicro-back-order-service"]
+	path = packages/service/xotomicro-back-order-service
+	url = https://github.com/xotomicro/xotomicro-back-order-service.git
+	
+[submodule "packages/service/xotomicro-back-product-service"]
+	path = packages/service/xotomicro-back-product-service
+	url = https://github.com/xotomicro/xotomicro-back-product-service.git
+	
+[submodule "packages/service/xotomicro-back-user-service"]
+	path = packages/service/xotomicro-back-user-service
+	url = https://github.com/xotomicro/xotomicro-back-user-service.git

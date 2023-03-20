@@ -1,0 +1,21 @@
+{
+  "name": "xotomicro-backend",
+  "description": "back end to xotomicro",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "boot": "yarn bootstrap && yarn build && yarn start",
+    "bootstrap": "mvn clean install -Dmaven.test.skip",
+    "build": "docker-compose --env-file=.env build",
+    "clean:docker": "sh ./scripts/docker/clean.sh",
+    "clean:kubernetes": "sh ./scripts/kubernetes/clean.sh",
+    "format:java": "sh ./scripts/format.sh",
+    "start": "docker-compose --env-file=.env up",
+    "start:quiet": "docker-compose --env-file=.env build && docker-compose --env-file=.env up",
+    "changelog": "auto-changelog -p",
+    "git:update": "./git-util.sh"
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.4.0"
+  }
+}
